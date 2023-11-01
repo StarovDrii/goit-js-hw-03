@@ -1,36 +1,37 @@
-// Задача 3. Перевірка спаму
-// Функція checkForSpam(message) приймає рядок (параметр message), перевіряє його на вміст заборонених слів spam і sale, і повертає результат перевірки. Слова в рядку параметра message можуть бути в довільному регістрі, наприклад SPAM або sAlE.
+// Задача 3. Фільтрація масиву чисел
+// Напиши функцію filterArray(numbers, value), яка приймає масив чисел (numbers) та значення (value) як параметри. Функція повинна повертати новий масив лише тих чисел із масиву numbers, які більші за значення value.
 
-// Доповни код функції таким чином, що:
+// Усередині функції:
 
-// Якщо знайдено заборонене слово (spam або sale), то функція повертає буль true
-// Якщо в рядку відсутні заборонені слова, функція повертає буль false
+// Створи порожній масив, у який будеш додавати підходящі числа.
+// Використай цикл для ітерації кожного елемента масиву numbers.
+// Використовуй умовний оператор if усередині циклу для перевірки кожного елемента и додавання до свого масиву.
+// Поверни свій новий масив з підходящими числами як результат.
 // Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
 
-function checkForSpam(message) {
-  const normalizedMessage = message.toLowerCase();
-  return normalizedMessage.includes('spam') ||
-    normalizedMessage.includes('sale')
-    ? Boolean(true)
-    : Boolean(false);
+function filterArray(numbers, value) {
+  const filteredArray = [];
+  for (const number of numbers) {
+    if (number > value) {
+      filteredArray.push(number);
+    }
+  }
+  return filteredArray;
 }
 
-console.log(checkForSpam('Latest technology news')); // false
-console.log(checkForSpam('JavaScript weekly newsletter')); // false
-console.log(checkForSpam('Get best sale offers now!')); // true
-console.log(checkForSpam('Amazing SalE, only tonight!')); // true
-console.log(checkForSpam('Trust me, this is not a spam message')); // true
-console.log(checkForSpam('Get rid of sPaM emails. Our book in on sale!')); // true
-console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
 
 // Залиш цей код для перевірки ментором.
 
 // На що буде звертати увагу ментор при перевірці:
-// Оголошена функція checkForSpam(message).
-// Виклик функції checkForSpam("Latest technology news") повертає false
-// Виклик функції checkForSpam("JavaScript weekly newsletter")повертає false
-// Виклик функції checkForSpam("Get best sale offers now!") повертає true
-// Виклик функції checkForSpam("Amazing SalE, only tonight!") повертає true
-// Виклик функції checkForSpam("Trust me, this is not a spam message") повертає true
-// Виклик функції checkForSpam("Get rid of sPaM emails. Our book in on sale!") повертає true
-// Виклик функції checkForSpam("[SPAM] How to earn fast money?") повертає true
+// Оголошена функція filterArray(numbers, value)
+// Виклик функції filterArray([1, 2, 3, 4, 5], 3) повертає [4, 5]
+// Виклик функції filterArray([1, 2, 3, 4, 5], 4) повертає [5]
+// Виклик функції filterArray([1, 2, 3, 4, 5], 5) повертає []
+// Виклик функції filterArray([12, 24, 8, 41, 76], 38) повертає [41, 76]
+// Виклик функції filterArray([12, 24, 8, 41, 76], 20) повертає [24, 41, 76]
+// Виклик функції filterArray() з випадковим масивом і числом повертає правильний масив
